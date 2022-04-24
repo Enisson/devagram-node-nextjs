@@ -12,7 +12,7 @@ export const conectarMondoDB = (handler: NextApiHandler) =>
         }
 
         // Já que não está conectado, vamos conectar
-        // Vamois obter a variável de ambiente preenchida do env
+        // Vamos obter a variável de ambiente preenchida do env
 
         const { DB_CONEXAO_STRING } = process.env;
 

@@ -4,14 +4,13 @@ import type { CadastroRequisicao } from '../../types/CadastroRequisicao';
 import { UsuarioModel } from '../../models/UsuarioModel';
 import {conectarMondoDB} from '../../middlewares/conectarMongoDB';
 
-
-
 import md5 from 'md5';
 
 const endpointCadastro =  async (
     req : NextApiRequest,
     res : NextApiResponse<RespostaPadraoMsg>
 ) => {
+
     if(req.method === 'POST'){
         const usuario = req.body as CadastroRequisicao;
 
@@ -39,10 +38,11 @@ const endpointCadastro =  async (
             email : usuario.email,
             senha : md5(usuario.senha)
         }
+
+        //Criando cadastro usuário
         await UsuarioModel.create(usuarioASerSalvo);
         return res.status(200).json({ msg : 'Usuário criado com sucesso!' })
 
-        return res.status(200).json({ msg : 'Dados corretos' })
     }
     return res.status(405).json({ erro : 'Método informado não é válido!' })
 };
