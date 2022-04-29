@@ -20,7 +20,7 @@ const handler = nc()
             }
 
             //Pego o nome
-            const {nome} = req.body;
+            const {nome} = req?.body;
             if(nome && nome.length > 2){
                 usuario.nome = nome;
             }
