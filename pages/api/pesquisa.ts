@@ -18,7 +18,6 @@ const pesquisaEndpoint = async (req: NextApiRequest, res: NextApiResponse<Respos
                 return res.status(200).json(usuarioEncontrado);
             } else {
                 const { filtro } = req.query;
-
                 if (!filtro || filtro.length < 2) {
                     return res.status(400).json({ erro: 'Por favor informar pelo menos 2 caracteres para a busca' });
                 }
@@ -29,7 +28,7 @@ const pesquisaEndpoint = async (req: NextApiRequest, res: NextApiResponse<Respos
                     ]
 
                 });
-
+                usuariosEncontrador.forEach( e => e.senha = null);
                 return res.status(200).json(usuariosEncontrador);
             }
 
