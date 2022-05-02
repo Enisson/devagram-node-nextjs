@@ -4,6 +4,7 @@ import {PublicacaoModel} from '../../models/PublicacaoModel'
 import { validarTokenJWT } from '../../middlewares/validarTokenJWT';
 import type { RespostaPadraoMsg } from '../../types/RespostaPadraoMsg';
 import { UsuarioModel } from '../../models/UsuarioModel';
+import { politicaCORS } from '../../middlewares/politicaCORS';
 
 const likeEndpoint = async (req : NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>) => {
 
@@ -46,4 +47,4 @@ const likeEndpoint = async (req : NextApiRequest, res: NextApiResponse<RespostaP
 
 }
 
-export default validarTokenJWT(conectarMondoDB(likeEndpoint));
+export default politicaCORS(validarTokenJWT(conectarMondoDB(likeEndpoint)));

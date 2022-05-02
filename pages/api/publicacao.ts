@@ -6,6 +6,7 @@ import {conectarMondoDB} from '../../middlewares/conectarMongoDB';
 import {validarTokenJWT} from '../../middlewares/validarTokenJWT';
 import { PublicacaoModel } from '../../models/PublicacaoModel'; 
 import { UsuarioModel } from '../../models/UsuarioModel'; 
+import { politicaCORS } from '../../middlewares/politicaCORS';
 
 
 const handler = nc()
@@ -61,4 +62,4 @@ export const config = {
     }
 }
 
-export default validarTokenJWT(conectarMondoDB(handler));
+export default politicaCORS(validarTokenJWT(conectarMondoDB(handler)));

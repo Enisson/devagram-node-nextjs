@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { conectarMondoDB } from '../../middlewares/conectarMongoDB';
+import { politicaCORS } from '../../middlewares/politicaCORS';
 import { validarTokenJWT } from '../../middlewares/validarTokenJWT';
 import { PublicacaoModel } from '../../models/PublicacaoModel';
 import { UsuarioModel } from '../../models/UsuarioModel';
@@ -45,4 +46,4 @@ const comentarioEndpoint = async (req: NextApiRequest, res: NextApiResponse<Resp
     }
 };
 
-export default validarTokenJWT(conectarMondoDB(comentarioEndpoint));
+export default politicaCORS(validarTokenJWT(conectarMondoDB(comentarioEndpoint)));

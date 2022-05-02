@@ -7,6 +7,7 @@ import { conectarMondoDB } from '../../middlewares/conectarMongoDB';
 import md5 from 'md5';
 import { upload, uploadImagemCosmic } from '../../services/uploadImagemCosmic';
 import nc from 'next-connect';
+import { politicaCORS } from '../../middlewares/politicaCORS';
 
 const handler = nc()
     .use(upload.single('file'))
@@ -56,4 +57,4 @@ export const config = {
     }
 }
 
-export default conectarMondoDB(handler);
+export default politicaCORS(conectarMondoDB(handler));
