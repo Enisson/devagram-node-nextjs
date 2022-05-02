@@ -8,7 +8,7 @@ import { UsuarioModel } from '../../models/UsuarioModel';
 const likeEndpoint = async (req : NextApiRequest, res: NextApiResponse<RespostaPadraoMsg>) => {
 
     try{
-        //O tédodo que vai ser utilizado
+        //O método que vai ser utilizado
         if(req.method === 'PUT') {
             //id da publicação
             const {id} = req?.query;

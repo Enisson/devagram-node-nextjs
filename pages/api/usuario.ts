@@ -24,7 +24,7 @@ const handler = nc()
             if(nome && nome.length > 2){
                 usuario.nome = nome;
             }
-
+            //Pego a imagem
             const {file} = req;
             if(file && file.originalname){
                 const image = await uploadImagemCosmic(req);
